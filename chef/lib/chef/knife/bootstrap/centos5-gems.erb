@@ -17,6 +17,11 @@ fi
 
 gem update --system
 gem update
+
+if ! gem sources|grep "rubygems.org"; then
+  gem sources -a "http://www.rubygems.org"
+fi
+
 gem install ohai --no-rdoc --no-ri --verbose
 gem install chef --no-rdoc --no-ri --verbose <%= bootstrap_version_string %>
 
